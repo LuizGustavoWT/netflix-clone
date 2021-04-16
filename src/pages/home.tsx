@@ -31,7 +31,6 @@ export default function Home(){
           >
             <Text>Teste</Text>
           </Box>
-
         </SimpleGrid>
       </Flex>
     </Flex>
