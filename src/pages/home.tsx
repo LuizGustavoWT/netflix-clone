@@ -1,16 +1,21 @@
-import { Box, Flex, SimpleGrid, Text} from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Text, Heading, Image, Stack, Icon, IconButton, transition} from "@chakra-ui/react";
+import { useState } from "react";
+import { RiArrowDropLeftLine, RiArrowDropRightLine } from "react-icons/ri";
 
 import Header from "../components/Header";
+import { MoviesRow } from "../components/MoviesRow";
 import { Sidebar } from "../components/Sidebar";
 
 export default function Home(){
+  const [scrollX, setScrollX] = useState(0)
   return(
     <Flex 
       direction="column"
       h="100vh"
     >
       <Header/>
-      <Flex 
+      <Flex
+         
         w="100%"
         my="6"
         maxWidth={1480}
@@ -18,20 +23,10 @@ export default function Home(){
         px="6"
       >
         <Sidebar/>
-        <SimpleGrid 
-          flex="1" 
-          gap="4" 
-          minChildWidth="320px"
-          alignItems="flex-start"
-        >
-          <Box 
-            p="8"
-            bg="gray.800"
-            borderRadius={8}
-          >
-            <Text>Teste</Text>
-          </Box>
-        </SimpleGrid>
+        <Flex flex="1" mr="auto" flexDir="column">
+          <MoviesRow/>
+          <MoviesRow/>
+        </Flex>
       </Flex>
     </Flex>
   )
